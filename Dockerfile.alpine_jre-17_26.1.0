@@ -1,0 +1,38 @@
+FROM docker.io/eclipse-temurin:17-jre-alpine
+
+USER root
+
+RUN apk upgrade && \
+    apk add bash curl sudo tar && \
+    rm -rf /var/cache/apk
+
+WORKDIR /opt/jboss
+
+ENV JAVA_HOME /opt/java/openjdk
+
+ENV WILDFLY_VERSION 26.1.0.Final
+ENV WILDFLY_SHA256 c8a478e7a57daeb767d88cd63de2b26e9e22562bed77a09a74b39c489ec5d7e3
+ENV JBOSS_HOME /opt/jboss/wildfly
+
+RUN cd /root \
+    && curl -fLO https://github.com/wildfly/wildfly/releases/download/$WILDFLY_VERSION/wildfly-$WILDFLY_VERSION.tar.gz || curl -fLO https://download.jboss.org/wildfly/$WILDFLY_VERSION/wildfly-$WILDFLY_VERSION.tar.gz \
+    && sha256sum wildfly-$WILDFLY_VERSION.tar.gz | grep $WILDFLY_SHA256 \
+    && tar xf wildfly-$WILDFLY_VERSION.tar.gz \
+    && mv $HOME/wildfly-$WILDFLY_VERSION $JBOSS_HOME \
+    && rm wildfly-$WILDFLY_VERSION.tar.gz
+
+ENV LAUNCH_JBOSS_IN_BACKGROUND true
+
+EXPOSE 8080
+HEALTHCHECK --start-period=5m CMD curl --fail http://localhost:8080 || exit 1
+
+ADD entrypoint.sh /
+ADD start.sh /start.sh
+
+ENV WILDFLY_USER_NAME jboss
+ENV WILDFLY_GROUP_NAME jboss
+ENV WILDFLY_USER_UID 1000 
+ENV WILDFLY_GROUP_GID 1000 
+
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["/opt/jboss/wildfly/bin/standalone.sh", "-b", "0.0.0.0"]
