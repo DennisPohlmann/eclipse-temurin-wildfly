@@ -11,6 +11,8 @@ Wildfly will run as none root user, which will be created while start up. You ca
 
 # Supported tags and respective `Dockerfile` links
 
+You can find all available tags [here](https://github.com/DennisPohlmann/eclipse-temurin-wildfly/blob/main/TAGS.md).
+
 - [alpine_jre-8_26.1.1](https://github.com/DennisPohlmann/eclipse-temurin-wildfly/blob/main/Dockerfiles/Dockerfile.alpine_jre-8_26.1.1) [alpine_jdk-8_26.1.1](https://github.com/DennisPohlmann/eclipse-temurin-wildfly/blob/main/Dockerfiles/Dockerfile.alpine_jdk-8_26.1.1)
 - [alpine_jre-11_26.1.1](https://github.com/DennisPohlmann/eclipse-temurin-wildfly/blob/main/Dockerfiles/Dockerfile.alpine_jre-11_26.1.1) [alpine_jdk-11_26.1.1](https://github.com/DennisPohlmann/eclipse-temurin-wildfly/blob/main/Dockerfiles/Dockerfile.alpine_jdk-11_26.1.1)
 - [alpine_jre-17_26.1.1](https://github.com/DennisPohlmann/eclipse-temurin-wildfly/blob/main/Dockerfiles/Dockerfile.alpine_jre-17_26.1.1) [alpine_jdk-17_26.1.1](https://github.com/DennisPohlmann/eclipse-temurin-wildfly/blob/main/Dockerfiles/Dockerfile.alpine_jdk-17_26.1.1)
@@ -27,17 +29,6 @@ Wildfly will run as none root user, which will be created while start up. You ca
 - [jammy_jre-11_26.1.1](https://github.com/DennisPohlmann/eclipse-temurin-wildfly/blob/main/Dockerfiles/Dockerfile.jammy_jre-11_26.1.1) [jammy_jdk-11_26.1.1](https://github.com/DennisPohlmann/eclipse-temurin-wildfly/blob/main/Dockerfiles/Dockerfile.jammy_jdk-11_26.1.1)
 - [jammy_jre-17_26.1.1](https://github.com/DennisPohlmann/eclipse-temurin-wildfly/blob/main/Dockerfiles/Dockerfile.jammy_jre-17_26.1.1) [jammy_jdk-17_26.1.1](https://github.com/DennisPohlmann/eclipse-temurin-wildfly/blob/main/Dockerfiles/Dockerfile.jammy_jdk-17_26.1.1)
 - [jammy_jre-18_26.1.1](https://github.com/DennisPohlmann/eclipse-temurin-wildfly/blob/main/Dockerfiles/Dockerfile.jammy_jre-18_26.1.1) [jammy_jdk-18_26.1.1](https://github.com/DennisPohlmann/eclipse-temurin-wildfly/blob/main/Dockerfiles/Dockerfile.jammy_jdk-18_26.1.1)
-
-# Run It
-
-### CentOS 7
-    docker run --rm -p 8080:8080 dennispohlmann/eclipse-temurin-wildfly:centos7_jre-18_26.1.1
-
-### Alpine
-    docker run --rm -p 8080:8080 dennispohlmann/eclipse-temurin-wildfly:alpine_jre-18_26.1.1
-
-### Ubuntu
-    docker run --rm -p 8080:8080 dennispohlmann/eclipse-temurin-wildfly:jammy_jre-18_26.1.1
 
 # Environment Variables
 
@@ -56,3 +47,13 @@ You can specify jboss group GID. Default: 1000
 ### `JAVA_OPTS`
 You can specify JAVA_OPTS. Default: unset/defaults
 
+# Run It
+
+### CentOS 7
+    docker run --rm -p 8080:8080 dennispohlmann/eclipse-temurin-wildfly:centos7_jre-18_26.1.1
+
+### Alpine
+    docker run --rm -p 8080:8080 dennispohlmann/eclipse-temurin-wildfly:alpine_jre-18_26.1.1
+
+### Ubuntu
+    docker run --rm -p 8080:8080 dennispohlmann/eclipse-temurin-wildfly:jammy_jre-18_26.1.1
