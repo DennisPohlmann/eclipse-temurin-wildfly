@@ -7,6 +7,8 @@ This container runs:
 * [OpenJDK binaries](https://hub.docker.com/_/eclipse-temurin) built by Eclipse Temurin
 * [WildFly](https://www.wildfly.org/)
 
+Container will run as none root user. You can specifiy user UID and GID, to let the user create/modify/read mounted files by his UID/GID.
+
 # Supported tags and respective `Dockerfile` links
 
 - [alpine_jre-8_20.0.1](https://github.com/DennisPohlmann/eclipse-temurin-wildfly/blob/main/Dockerfiles/Dockerfile.alpine_jre-8_20.0.1) [alpine_jdk-8_20.0.1](https://github.com/DennisPohlmann/eclipse-temurin-wildfly/blob/main/Dockerfiles/Dockerfile.alpine_jdk-8_20.0.1)
@@ -149,3 +151,21 @@ This container runs:
 
 ### Ubuntu
     docker run --rm -p 8080:8080 dennispohlmann/eclipse-temurin-wildfly:jammy_jre-18_26.1.1
+
+# Environment Variables
+
+### `WILDFLY_USER_NAME`
+You can specify jboss username. Default: jboss
+
+### `WILDFLY_GROUP_NAME`
+You can specify jboss group name. Default: jboss
+
+### `WILDFLY_USER_UID`
+You can specify jboss user UID. Default: 1000
+
+### `WILDFLY_GROUP_GID`
+You can specify jboss group GID. Default: 1000
+
+### `JAVA_OPTS`
+You can specify JAVA_OPTS. Default: unset/defaults
+
