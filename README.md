@@ -50,10 +50,10 @@ You can specify JAVA_OPTS. Default: unset/defaults
 # Run It
 
 ### CentOS 7
-    docker run --rm -p 8080:8080 dennispohlmann/eclipse-temurin-wildfly:centos7_jre-18_26.1.1
+    docker run --rm -p 8080:8080 dennispohlmann/eclipse-temurin-wildfly:centos7_jre-18_26.1.1_latest
 
 ### Alpine
-    docker run --rm -p 8080:8080 dennispohlmann/eclipse-temurin-wildfly:alpine_jre-18_26.1.1
+    docker run --rm -p 8080:8080 dennispohlmann/eclipse-temurin-wildfly:alpine_jre-18_26.1.1_latest
 
 ### Ubuntu
-    docker run --rm -p 8080:8080 dennispohlmann/eclipse-temurin-wildfly:jammy_jre-18_26.1.1
+    docker run --rm -p 8080:8080 dennispohlmann/eclipse-temurin-wildfly:jammy_jre-18_26.1.1_latest
