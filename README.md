@@ -7,7 +7,7 @@ This container runs:
 * [OpenJDK binaries](https://hub.docker.com/_/eclipse-temurin) built by Eclipse Temurin
 * [WildFly](https://www.wildfly.org/)
 
-Container will run as none root user. You can specifiy user UID and GID, to let the user create/modify/read mounted files by his UID/GID.
+Wildfly will run as none root user, which will be created while start up.. You can specifiy user UID and GID, to let the user create/modify/read mounted files by his UID/GID.
 
 # Supported tags and respective `Dockerfile` links
 
